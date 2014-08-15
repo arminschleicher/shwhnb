@@ -72,6 +72,7 @@ function foundationPress_mobile_off_canvas() {
     ));
 }
 
+
 /** 
  * Add support for buttons in the top-bar menu: 
  * 1) In WordPress admin, go to Apperance -> Menus. 

@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
+		<!-- LIVE RELOADING SCRIPT FOR DEV -->
+		<script src="http://beta.sh-wohnbau.eu:1338/livereload.js"></script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><?php if ( is_category() ) {
@@ -36,23 +38,30 @@
 	
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
-	
-	<?php do_action('foundationPress_layout_start'); ?>
-	
-	<nav class="tab-bar show-for-small-only">
-		<section class="left-small">
-			<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-		</section>
-		<section class="middle tab-bar-section">
-			
-			<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+	<?php
+    	$image = get_field('bannerbild');
+  	?>
+  	<section class="home-header-section preload-img" data-background-src="<?php echo $image['url'];?>">
+		<?php do_action('foundationPress_layout_start'); ?>
+		
+		<nav class="tab-bar">
+			<section class="left-small">
+				<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+			</section>
+		</nav>
 
-		</section>
-	</nav>
+		<?php get_template_part('parts/off-canvas-menu'); ?>
 
-	<?php get_template_part('parts/off-canvas-menu'); ?>
-
-	<?php get_template_part('parts/top-bar'); ?>
-
-<section class="container" role="document">
-	<?php do_action('foundationPress_after_header'); ?>
+		<div id="frontpage-logo-container" class="small-centered small-10 columns height">
+			<img class="preload-img" style="width: 195px; display: block; margin: 0 auto;" data-img-src="<?php img_uri('general/logo.svg')?>">
+            </img>
+		</div>
+		<div id="frontpage-headertext-container" class="small-centered columns">
+		    <h1><?php the_field('bannertext'); ?></h1>
+		</div>
+		<div id="frontpage-button-container" class="small-10 medium-2 small-centered medium-centered columns">
+		    <a rel="m_PageScroll2id" href="#about" class="button radius small small-12 sans"><?php the_field('buttontext'); ?></a>
+		</div>
+    </section>
+    <section class="container" role="document">
+    	<?php do_action('foundationPress_after_header'); ?>

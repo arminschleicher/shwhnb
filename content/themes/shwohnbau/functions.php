@@ -26,7 +26,16 @@ require_once('library/entry-meta.php');
 // Enqueue scripts
 require_once('library/enqueue-scripts.php');
 
+// Enqueue styles
+require_once('library/enqueue-styles.php');
+
 // Add theme support
 require_once('library/theme-support.php');
+
+// Add project related php constants
+require_once('library/app-constants.php');
+
+// Add project related php functions
+require_once('library/app-functions.php');
 
 ?>
